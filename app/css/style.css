@@ -1,0 +1,29 @@
+/* ===========================================
+  Base Styles
+============================================== */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  font: 1rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #16606a; }
+
+img {
+  max-width: 100%; }
+
+ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+/* ===========================================
+  Header
+============================================== */
+/* ===========================================
+  Main
+============================================== */
+/* --------------------------------
+  Section: Featured Projects
+----------------------------------- */
+#featured-work {
+  margin-top: 1.5rem; }

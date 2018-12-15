@@ -1,0 +1,715 @@
+/* ===================================================
+    Variables
+====================================================== */
+
+/* Colors --- */
+$color-desk: #95e0e9;
+$color-keyboard: #0d3a3f;
+$color-power: #1e8794;
+$key-hovered: rgba(255, 255, 255, .6);
+$key-active: rgba(255, 255, 255, .8);
+$highlight: rgba(255, 255, 255, .8);
+$color-nail: #3b2212;
+
+/* Dimensions --- */
+// Desk
+$desk-x: 40em;
+$desk-y: 20em;
+$desk-z: 2em;
+
+// Laptop
+$laptop-x: 16em;
+$laptop-y: 9.6em;
+$laptop-z: .8em;
+
+// Portrait
+$portrait-x: 14em;
+$portrait-y: 10em;
+$portrait-z: 1em;
+
+// Paper
+$paper-x: 7em;
+$paper-y: 10em;
+
+// Nail
+$nail-x: .4em;
+
+/* ===================================================
+    Workspace
+====================================================== */
+
+.workspace {
+  font-size: .5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene {
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 30em;
+  perspective: 600px;
+  perspective-origin: 50% 10%;
+}
+
+
+/* ====================================================
+    Desk
+======================================================= */
+
+.desk {
+  width: $desk-x;
+  height: $desk-y;
+  transform: rotateX(90deg) translateY(0);
+}
+
+.face {
+  background-color: $color-desk;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%
+}
+
+.top,
+.bottom {
+  width: 100%;
+  height: $desk-z;
+}
+
+.right,
+.left {
+  width: $desk-z;
+  height: 100%;
+}
+
+
+/* --- Faces --- */
+
+.front {
+  transform: translateZ($desk-z / 2);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ($desk-z / 2);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ($desk-z / 2);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ($desk-y - ($desk-z / 2));
+}
+
+.right {
+  transform: rotateY(90deg) translateZ($desk-x - ($desk-z / 2));
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ($desk-z / 2);
+}
+
+
+/* ====================================================
+    Laptop
+======================================================= */
+
+.laptop {
+  width: $laptop-x;
+  height: $laptop-y;
+  transform: translate3d(0em, -12em, -4em);
+  /* -6 */
+}
+
+
+/* ------------------------------------------
+    Keyboard - Screen
+--------------------------------------------- */
+
+.keyboard,
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+.keyboard {
+  transform: rotateX(90deg) translate3d(0, 5.2em, -5.2em);
+}
+
+.screen {
+  transform-origin: 50% 100%;
+  transform: rotateX(0) translate3d(0, 0, 0);
+  transition: transform .4s;
+}
+
+.screen:hover {
+  transform: rotateX(8deg) translate3d(0, 0, 0);
+}
+
+.keyboard-face,
+.screen-face {
+  background-color: $color-keyboard;
+}
+
+
+/* --- Faces --- */
+
+.keyboard-front,
+.keyboard-back,
+.screen-front,
+.screen-back {
+  width: 100%;
+  height: 100%
+}
+
+.keyboard-top,
+.keyboard-bottom,
+.screen-top,
+.screen-bottom {
+  width: 100%;
+  height: $laptop-z;
+}
+
+.keyboard-right,
+.keyboard-left,
+.screen-left,
+.screen-right {
+  width: $laptop-z;
+  height: 100%;
+}
+
+
+/* --- Faces Positioning --- */
+
+.keyboard-front,
+.screen-front {
+  transform: translateZ($laptop-z / 2);
+}
+
+.keyboard-back,
+.screen-back {
+  transform: rotateY(180deg) translateZ($laptop-z / 2);
+}
+
+.keyboard-top,
+.screen-top {
+  transform: rotateX(90deg) translateZ($laptop-z / 2);
+}
+
+.keyboard-bottom,
+.screen-bottom {
+  transform: rotateX(-90deg) translateZ($laptop-y - ($laptop-z / 2));
+}
+
+.keyboard-right,
+.screen-right {
+  transform: rotateY(90deg) translateZ($laptop-x - ($laptop-z / 2));
+}
+
+.keyboard-left,
+.screen-left {
+  transform: rotateY(-90deg) translateZ($laptop-z / 2);
+}
+
+
+/* --- Power Button --- */
+
+.power-button {
+  width: 1.05em;
+  height: 1.05em;
+  margin: .9em 1.5em;
+  background-color: $color-power;
+}
+
+
+/* --- Buttons Grid --- */
+
+.buttons-grid {
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  flex-basis: 1.05em;
+  width: 12.6em;
+}
+
+.button {
+  flex-grow: 1;
+}
+
+.space {
+  flex-grow: 6;
+}
+
+.enter {
+  flex-grow: 2;
+}
+
+.power-button,
+.button {
+  background-color: $color-power;
+}
+
+.power-button:hover,
+.button:hover {
+  background-color: $key-hovered;
+}
+
+.power-button:active,
+.button:active {
+  background-color: $key-active;
+}
+
+
+/* --- Viewport --- */
+
+.viewport {
+  margin: auto;
+  width: 14em;
+  height: 7.6em;
+  background: #eee url(../img/html-tag.svg) no-repeat 50% 50%;
+  background-size: 5em 5em;
+  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, .5);
+}
+
+
+/* ====================================================
+    Nail
+======================================================= */
+
+.nail {
+  width: $nail-x;
+  height: $nail-x;
+  border-radius: 50%;
+  background-color: $color-nail;
+  transform: translate3d(12.1em, -26.5em, -18em)
+}
+
+
+/* ====================================================
+    Portrait
+======================================================= */
+
+.portrait {
+  width: $portrait-x;
+  height: $portrait-y;
+  transform-origin: 50% -1.75em;
+  transform: translate3d(12em, -15em, -18em);
+  transition: transform .3s;
+}
+
+.portrait:hover {
+  transform: translate3d(12em, -15em, -18em) rotate(6deg);
+}
+
+.portrait-face {
+  background: #16606a;
+}
+
+
+/* --- Faces --- */
+
+.portrait-front,
+.portrait-back {
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-top,
+.portrait-bottom {
+  width: 100%;
+  height: $portrait-z;
+}
+
+.portrait-right,
+.portrait-left {
+  width: $portrait-z;
+  height: 100%;
+}
+
+
+/* --- Faces Positioning --- */
+
+.portrait-front {
+  transform: translateZ($portrait-z / 2);
+}
+
+.portrait-back {
+  transform: rotateY(180deg) translateZ($portrait-z / 2);
+}
+
+.portrait-top {
+  transform: rotateX(90deg) translateZ($portrait-z / 2);
+}
+
+.portrait-bottom {
+  transform: rotateX(-90deg) translateZ($portrait-y - ($portrait-z / 2));
+}
+
+.portrait-right {
+  transform: rotateY(90deg) translateZ($portrait-x - ($portrait-z / 2));
+}
+
+.portrait-left {
+  transform: rotateY(-90deg) translateZ($portrait-z / 2);
+}
+
+
+/* --- Picture --- */
+
+.photo {
+  width: 12em;
+  height: 8em;
+  background: url(../img/akasaka.jpg) no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 20px .5px rgba(0, 0, 0, .5);
+  margin: auto;
+}
+
+
+/* --- Threads --- */
+
+.thread {
+  width: .15em;
+  height: 2.5em;
+  background-color: $color-nail;
+  transform-origin: 0 0;
+}
+
+.thread:nth-child(1) {
+  transform: translate3d(7em, -1.75em, 0) rotate(45deg);
+}
+
+.thread:nth-child(2) {
+  transform: translate3d(7em, -1.75em, 0) rotate(-45deg);
+}
+
+
+/* ====================================================
+    Papers
+======================================================= */
+
+.papers {
+  width: $paper-x;
+  height: $paper-y;
+  transform: rotateX(90deg) translate3d(10em, 2em, 6em);
+}
+
+.paper {
+  width: 100%;
+  height: 100%;
+  padding: .7em;
+  background-color: #fff;
+  transition: transform .3s;
+}
+
+.paper-1 {
+  transform: translateZ(-.06em);
+}
+
+.paper-2 {
+  transform: translateZ(-.04em);
+}
+
+.paper-3 {
+  transform: translateZ(-.02em);
+}
+
+.papers:hover .paper-3 {
+  transform: rotateZ(3deg) translateZ(-.02em);
+}
+
+.paper-5 {
+  transform: translateZ(.02em);
+}
+
+.papers:hover .paper-5 {
+  transform: rotateZ(6deg) translateZ(.02em);
+}
+
+.paper-6 {
+  transform: rotateZ(0) translateZ(.04em);
+  transform-origin: 100% 100%;
+}
+
+.papers:hover .paper-6 {
+  transform: rotateZ(9deg) translateZ(.04em);
+}
+
+.line {
+  flex-grow: 1;
+  border-bottom: .01em solid #ddd;
+}
+
+
+/* ====================================================
+    Shadows & Highlights
+======================================================= */
+
+.workspace::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  // max-width: calc(1000px - 2rem);
+  background: #eaf9fb radial-gradient( circle at 30% 30%, #fff, transparent);
+}
+
+
+/* --- Desk Highlights --- */
+
+.front {
+  background-image: radial-gradient( circle at 0% 100%, $highlight, transparent);
+}
+
+.bottom {
+  background-image: radial-gradient( circle at 0% 0%, $highlight, transparent);
+}
+
+
+/* --- Laptop Highlights & Shadows --- */
+
+.keyboard-front {
+  background-image: radial-gradient( circle at 0% 100%, rgba(255, 255, 255, .2), transparent);
+}
+
+.screen-front {
+  background-image: radial-gradient( circle at 0% 0%, rgba(255, 255, 255, .3), transparent);
+}
+
+.keyboard-back {
+  box-shadow: -10px 0px 20px rgba(0, 0, 0, .4), 0px -70px 20px rgba(0, 0, 0, .4);
+}
+
+
+/* -- Portrait Shadow --- */
+
+.portrait {
+  box-shadow: 10px 0 10px rgba(0, 0, 0, .3);
+}
+
+
+/* --- Papers Shadow --- */
+
+.paper {
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, .05);
+}
+
+
+/* ====================================================
+    DRY
+======================================================= */
+
+
+/* --- Laptop Border --- */
+
+.keyboard-face,
+.screen-face,
+.power-button,
+.button,
+.viewport {
+  border: .001em solid #041315;
+}
+
+
+/* --- Desk Border --- */
+
+.face {
+  border: .001em solid #27adbe;
+}
+
+
+/* --- Portrait Border --- */
+
+.portrait-front,
+.photo {
+  border: .28em solid #041315;
+}
+
+
+/* --- 3D Space --- */
+
+.scene,
+.desk,
+.laptop,
+.screen,
+.keyboard,
+.portrait,
+.papers {
+  transform-style: preserve-3d;
+}
+
+
+/* --- Absolute Positioned Elements --- */
+
+.face,
+.laptop,
+.screen,
+.keyboard,
+.screen-face,
+.keyboard-face,
+.portrait,
+.portrait-face,
+.thread,
+.nail,
+.papers,
+.paper {
+  position: absolute;
+}
+
+
+/* --- Relative Positioned Elements --- */
+
+.scene,
+.workspace,
+.desk,
+.container {
+  position: relative;
+}
+
+
+/* --- Flex Containers --- */
+
+.workspace,
+.scene,
+.screen-front,
+.keyboard-front,
+.buttons-grid,
+.row,
+.portrait-front,
+.paper {
+  display: flex;
+}
+
+.keyboard-front,
+.buttons-grid,
+.paper {
+  flex-direction: column;
+}
+
+
+/* --- Hidden Elements --- */
+
+.papers,
+.portrait,
+.nail {
+  display: none;
+}
+
+
+/* ====================================================
+    Key Frames
+======================================================= */
+
+@keyframes desk {
+  0% {
+    transform: rotateX(90deg) translateY(32em);
+  }
+}
+
+@keyframes laptop {
+  0% {
+    transform: translate3d(-6em, -12em, 24rem);
+  }
+}
+
+@keyframes open {
+  0% {
+    transform: rotateX(-90deg) translate3d(0, -.4em, -.4em);
+  }
+}
+
+@keyframes screen {
+  0% {
+    background: #333;
+  }
+}
+
+@keyframes papers {
+  0% {
+    transform: rotateX(90deg) translate3d(10em, 26rem, 6em);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(12em, -32em, -18em);
+  }
+}
+
+
+/* ====================================================
+    Animations
+======================================================= */
+
+.desk {
+  animation: desk .6s cubic-bezier(.48, 1.46, .68, 1) backwards;
+}
+
+.laptop {
+  animation: laptop .6s cubic-bezier(.48, 1.46, .68, 1) .6s backwards;
+}
+
+.screen {
+  animation: open .8s backwards 1.2s;
+}
+
+.viewport {
+  animation: screen 0s backwards 2s;
+}
+
+.papers {
+  animation: papers 1s backwards 1.8s;
+}
+
+.portrait {
+  animation: fall .4s backwards 2.7s;
+}
+
+
+/* ====================================================
+    Media Queries
+======================================================= */
+
+@media (min-width: 270px) {
+  .workspace {
+    font-size: .7rem;
+  }
+}
+
+@media (min-width: 545px) {
+  .laptop {
+    transform: translate3d(-6em, -12em, -4em);
+  }
+  .papers,
+  .portrait,
+  .nail {
+    display: block;
+  }
+}
+
+@media (min-width: 791px) {
+  .workspace {
+    font-size: .8rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .workspace {
+    font-size: .9rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .workspace {
+    font-size: 1rem;
+  }
+}
