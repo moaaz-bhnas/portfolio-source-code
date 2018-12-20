@@ -1,4 +1,49 @@
 /* ===========================================
+  Variables
+============================================== */
+/* Colors --- */
+$base: #071d20;
+$base-light: #cdd2d2;
+$base-lighter: #e6e8e9;
+$workspace-back: #8bb0b5;
+$background: #c5d8da;
+$base2: #3e6d41;
+$base2-light: #c2e1c5;
+
+/* Spaces --- */
+$max-width: 59.375rem;
+$padding-top: 4rem;
+$padding-bottom: 2rem;
+$padding-sides: 1rem;
+
+/* Media Queries --- */
+$break-m: 471px;
+$break-l: 731px;
+$break-xl: 950px;
+$break-services: 445px;
+$break-projects: 423px;
+
+
+/* ===========================================
+  Mixins
+============================================== */
+@mixin project-link {
+  display: inline-block;
+  box-sizing: content-box;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid;
+  padding: .5rem;
+  border-radius: 50%;
+  transition: .2s background-color;
+
+  &:hover,
+  &:focus {
+    background-color: $base2-light;
+  }
+}
+
+/* ===========================================
   Base Styles
 ============================================== */
 * {
@@ -6,28 +51,132 @@
 }
 
 html {
-  font: 1rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: #16606a;
+  font-size: .9rem;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: $base;
+
+  @media screen and (min-width: $break-m) {
+    font-size: .95rem;
+  }
+
+  @media screen and (min-width: $break-l) {
+    font-size: 1rem;
+  }
+}
+
+body {
+  max-width: $max-width;
+  margin: 0 auto;;
+}
+
+h2 {
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  padding-bottom: .7rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 2.2rem;
+  height: .25rem;
+  background-color: $base;
+}
+
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 img {
   max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0;
+  margin: 0;
 }
 
-a {
-  
+a,
+button {
+  color: $base2;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+figure {
+  margin: 0;
 }
 
 /* ===========================================
   Header
 ============================================== */
 header {
-  
+  padding-top: 3.8rem;
+
+  h1 {
+    position: absolute;
+    left: -100rem;
+  }
+
+  h2 {
+    position: absolute;
+    left: -100rem;
+  }
+
+  nav {
+    max-width: $max-width;
+    // margin: 0 auto;
+    padding: 0 $padding-sides;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1;
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 5px solid #203436;
+    transition-property: box-shadow, background-color;
+    transition-duration: .3s;
+    &[data-scrolled="true"] {
+      box-shadow: 0 8px 8px -5px rgba($color: #000000, $alpha: .5);
+    }
+    &[data-oncolor="true"] {
+      background-color: $background;
+    }
+  }
+
+  .nav-item {
+    display: inline-block;
+    margin-right: .2rem;
+
+    @media screen and (min-width: $break-m) {
+      margin-right: 1rem;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 1rem 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: border-color .2s;
+
+    &:hover,
+    &:focus {
+      border-color: $base2;
+    }
+  }
 }
 
 /* ===========================================
@@ -35,8 +184,328 @@ header {
 ============================================== */
 
 /* --------------------------------
+  Section: About
+----------------------------------- */
+#about {
+  padding: $padding-top $padding-sides $padding-bottom;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin: 0 0 1.3rem;
+
+    @media screen and (min-width: $break-m) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+/* Services --- */
+#services-container {
+  margin-bottom: 1.7rem;
+
+  #services {
+    text-align: center;
+  }
+
+  .service {
+    margin: 0 .8rem 1.3rem;
+
+    @media screen and (min-width: $break-m) {
+      margin-bottom: 2rem;
+    }
+
+    @media screen and (min-width: $break-services) {
+      display: inline-block;
+      min-width: 15.125rem;
+    }
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  p {
+    max-width: 13rem;
+    margin: 0 auto;
+  }
+
+  .service-img-container {
+    margin: 0 auto;
+    box-sizing: content-box;
+    width: 3rem;
+    height: 3rem;
+    padding: .8rem;
+    background-color: $base-lighter;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+}
+
+/* Technologies --- */
+#techs-container {
+  margin-bottom: 1.7rem;
+  
+  @media screen and (min-width: $break-xl) {
+    float: right;
+    position: relative;
+    top: 3rem;
+  }
+
+  h3 {
+    margin-bottom: 1.3rem;
+  }
+
+  .techs-group {
+    margin-bottom: .2rem;
+  }
+
+  .tech {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 .1rem .5rem 0;
+    border: 1px solid;
+    padding: .2rem .3rem;
+    background-color: $base-lighter;
+  }
+}
+
+/* About me --- */
+article#me {
+  @media screen and (min-width: $break-xl) {
+    float: left;
+  }
+
+  #avatar {
+    box-sizing: content-box;
+    display: block;
+    margin: 0 auto;
+    width: 8rem;
+    border-radius: 50%;
+    border: 2px solid #6a7779;
+
+    @media screen and (min-width: $break-xl) {
+      margin-left: 0;
+    }
+  }
+
+  h3 {
+    text-align: center;
+    margin: 1rem 0;
+
+    @media screen and (min-width: $break-xl) {
+      text-align: left;
+    }
+  }
+
+  p {
+    margin: .5rem auto;
+    max-width: 25.5rem;
+  }
+}
+
+/* --------------------------------
   Section: Featured Projects
 ----------------------------------- */
-#featured-work {
-  margin-top: 1.5rem;
+#featured-projects {
+  padding: $padding-top $padding-sides $padding-bottom;
+  background-color: $background;
+  text-align: center;
+
+  #projects-grid {
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+}
+
+/* Project --- */
+.project {
+  margin-bottom: 1rem;
+  @media screen and (min-width: $break-projects) {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: -.3rem; // Removes default spaces between inline elements
+  }
+
+  &:nth-child(1) {
+    .project-wrapper {
+      @media screen and (min-width: $break-projects) {
+        border-radius: 2rem 0 0 0;
+      }
+    }
+  }
+  &:nth-child(2) {
+    .project-wrapper {
+      @media screen and (min-width: $break-projects) {
+        border-radius: 0 2rem 0 0;
+      }
+    }
+  }
+  &:nth-child(3) {
+    .project-wrapper {
+      @media screen and (min-width: $break-projects) {
+        border-radius: 0 0 0 2rem;
+      }
+    }
+  }
+  &:nth-child(4) {
+    .project-wrapper {
+      @media screen and (min-width: $break-projects) {
+        border-radius: 0 0 2rem 0;
+      }
+    }
+  }
+
+  .project-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 13rem;
+    padding: .7rem 1.5rem;
+    border: 1px solid;
+    border-radius: 2rem;
+    background-color: #fff;
+    box-shadow: 0 5px 10px -5px;
+  }
+
+  h3 {
+    position: relative;
+    font-size: 1.3rem;
+    margin: 0;
+    min-height: 3.1rem;
+  }
+
+  .project-name-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .project-icon {
+    width: 4rem;
+    margin: 1rem 0;
+  }
+
+  .repo-link {
+    @include project-link;
+  }
+
+  .live-link {
+    @include project-link;
+  }
+}
+
+/* --------------------------------
+  Section: Contact
+----------------------------------- */
+#contact {
+  padding: $padding-top $padding-sides $padding-bottom;
+  
+  p {
+    text-align: center;
+    font-size: 1.2rem
+  }
+
+  .input-container,
+  .message-container {
+    margin: .5rem auto;
+    max-width: 20rem;
+  }
+
+  .input-container {
+    @media screen and (min-width: $break-xl) {
+      display: inline-block;
+      width: 31.6%;
+
+      &:not(:nth-child(3)) {
+        margin-right: 2%;
+      }
+    }
+  }
+
+  .message-container {
+    @media screen and (min-width: $break-xl) {
+      max-width: 100%;
+    }
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  input#name {
+    background-image: url(../images/man-user.svg);
+  }
+
+  input#phone {
+    background-image: url(../images/phone.svg);
+  }
+
+  input#email {
+    background-image: url(../images/email.svg);
+  }
+
+  textarea#message {
+    background-image: url(../images/chat.svg);
+    background-position: .6rem 1rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1rem .5rem 1rem 3rem;
+    background-repeat: no-repeat;
+    background-size: 1.8rem 1.8rem;
+    background-position: .6rem 50%;
+  }
+
+  button[type="submit"] {
+    padding: .7rem
+  }
+}
+
+/* ===========================================
+  Footer
+============================================== */
+footer {
+  background-color: $background;
+  padding: 1rem;
+  text-align: center;
+
+  small {
+    font-size: 1rem;
+  }
+
+  p:first-of-type {
+    margin: 0;
+  }
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .social-item {
+    display: inline-block;
+    width: 3.3rem;
+    height: 3.3rem;
+    margin: 0 .5rem 1rem 0;
+  }
+}
+
+.social-item a {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  display: block;
+  transition: box-shadow .2s;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 10px 10px -5px;
+  }
 }

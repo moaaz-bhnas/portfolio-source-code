@@ -40,7 +40,7 @@
   transform: rotateX(90deg) translateY(0); }
 
 .face {
-  background-color: #95e0e9; }
+  background-color: #ac8968; }
 
 .front,
 .back {
@@ -120,7 +120,7 @@
 
 .keyboard-face,
 .screen-face {
-  background-color: #0d3a3f; }
+  background-color: #141210; }
 
 /* --- Faces --- */
 .keyboard-front,
@@ -180,7 +180,7 @@
   width: 1.05em;
   height: 1.05em;
   margin: .9em 1.5em;
-  background-color: #1e8794; }
+  background-color: #888; }
 
 /* --- Buttons Grid --- */
 .buttons-grid {
@@ -210,22 +210,22 @@
 
 .power-button,
 .button {
-  background-color: #1e8794; }
+  background-color: #888; }
 
 .power-button:hover,
 .button:hover {
-  background-color: rgba(255, 255, 255, 0.6); }
+  background-color: rgba(255, 255, 255, 0.8); }
 
 .power-button:active,
 .button:active {
-  background-color: rgba(255, 255, 255, 0.8); }
+  background-color: white; }
 
 /* --- Viewport --- */
 .viewport {
   margin: auto;
   width: 14em;
   height: 7.6em;
-  background: #eee url(../img/html-tag.svg) no-repeat 50% 50%;
+  background: #eee url(../images/tag.svg) no-repeat 50% 50%;
   background-size: 5em 5em;
   -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5); }
@@ -261,7 +261,7 @@
   transform: translate3d(12em, -15em, -18em) rotate(6deg); }
 
 .portrait-face {
-  background: #16606a; }
+  background-color: #222224; }
 
 /* --- Faces --- */
 .portrait-front,
@@ -308,8 +308,9 @@
 .photo {
   width: 12em;
   height: 8em;
-  background: url(../img/akasaka.jpg) no-repeat;
-  background-size: cover;
+  -o-object-fit: contain;
+  object-fit: contain;
+  background-color: #fff;
   -webkit-box-shadow: inset 0 0 20px 0.5px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 20px 0.5px rgba(0, 0, 0, 0.5);
   margin: auto; }
@@ -398,14 +399,14 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  background: #eaf9fb radial-gradient(circle at 30% 30%, #fff, transparent); }
+  background: #8bb0b5 radial-gradient(circle at 30% 30%, #fff, transparent); }
 
 /* --- Desk Highlights --- */
 .front {
-  background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.8), transparent); }
+  background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.5), transparent); }
 
 .bottom {
-  background-image: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.8), transparent); }
+  background-image: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.5), transparent); }
 
 /* --- Laptop Highlights & Shadows --- */
 .keyboard-front {
@@ -437,16 +438,16 @@
 .power-button,
 .button,
 .viewport {
-  border: .001em solid #041315; }
+  border: .05px solid #041315; }
 
 /* --- Desk Border --- */
 .face {
-  border: .001em solid #27adbe; }
+  border: 0.05px solid #624e3c; }
 
 /* --- Portrait Border --- */
 .portrait-front,
 .photo {
-  border: .28em solid #041315; }
+  border: 4px solid #041315; }
 
 /* --- 3D Space --- */
 .scene,

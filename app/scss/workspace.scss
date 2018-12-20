@@ -3,12 +3,15 @@
 ====================================================== */
 
 /* Colors --- */
-$color-desk: #95e0e9;
-$color-keyboard: #0d3a3f;
-$color-power: #1e8794;
-$key-hovered: rgba(255, 255, 255, .6);
-$key-active: rgba(255, 255, 255, .8);
-$highlight: rgba(255, 255, 255, .8);
+$workspace-back: #8bb0b5;
+$color-desk: #ac8968;
+$desk-border: #624e3c;
+$color-laptop: #141210;
+$color-keyboard: #888;
+$color-portrait: #222224;
+$key-hovered: rgba(255, 255, 255, .8);
+$key-active: rgba(255, 255, 255, 1);
+$highlight: rgba(255, 255, 255, .5);
 $color-nail: #3b2212;
 
 /* Dimensions --- */
@@ -153,7 +156,7 @@ $nail-x: .4em;
 
 .keyboard-face,
 .screen-face {
-  background-color: $color-keyboard;
+  background-color: $color-laptop;
 }
 
 
@@ -223,7 +226,7 @@ $nail-x: .4em;
   width: 1.05em;
   height: 1.05em;
   margin: .9em 1.5em;
-  background-color: $color-power;
+  background-color: $color-keyboard;
 }
 
 
@@ -254,7 +257,7 @@ $nail-x: .4em;
 
 .power-button,
 .button {
-  background-color: $color-power;
+  background-color: $color-keyboard;
 }
 
 .power-button:hover,
@@ -274,7 +277,7 @@ $nail-x: .4em;
   margin: auto;
   width: 14em;
   height: 7.6em;
-  background: #eee url(../img/html-tag.svg) no-repeat 50% 50%;
+  background: #eee url(../images/tag.svg) no-repeat 50% 50%;
   background-size: 5em 5em;
   box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, .5);
 }
@@ -310,7 +313,7 @@ $nail-x: .4em;
 }
 
 .portrait-face {
-  background: #16606a;
+  background-color: $color-portrait;
 }
 
 
@@ -365,10 +368,10 @@ $nail-x: .4em;
 /* --- Picture --- */
 
 .photo {
-  width: 12em;
-  height: 8em;
-  background: url(../img/akasaka.jpg) no-repeat;
-  background-size: cover;
+  width: $portrait-x - 2em;
+  height: $portrait-y - 2em;
+  object-fit: contain;
+  background-color: #fff;
   box-shadow: inset 0 0 20px .5px rgba(0, 0, 0, .5);
   margin: auto;
 }
@@ -460,7 +463,7 @@ $nail-x: .4em;
   bottom: 0;
   width: 100%;
   // max-width: calc(1000px - 2rem);
-  background: #eaf9fb radial-gradient( circle at 30% 30%, #fff, transparent);
+  background: $workspace-back radial-gradient( circle at 30% 30%, #fff, transparent);
 }
 
 
@@ -516,14 +519,14 @@ $nail-x: .4em;
 .power-button,
 .button,
 .viewport {
-  border: .001em solid #041315;
+  border: .05px solid #041315;
 }
 
 
 /* --- Desk Border --- */
 
 .face {
-  border: .001em solid #27adbe;
+  border: .05px solid $desk-border;
 }
 
 
@@ -531,7 +534,7 @@ $nail-x: .4em;
 
 .portrait-front,
 .photo {
-  border: .28em solid #041315;
+  border: 4px solid #041315;
 }
 
 
