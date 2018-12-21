@@ -50,21 +50,14 @@ if (cssForWorkspaceSupported) {
   Box shadow and background colors 
 =================================================== */
 
-/* DOM elements and positions --- */
-// Navigation bar
+/* DOM elements --- */
 
 
 var navBar = document.querySelector('nav');
 var projects = document.getElementById('featured-projects');
-var projectsTopPos = projects.offsetTop;
-var projectsHeight = projects.offsetHeight;
-var projectsBottomPos = projectsTopPos + projectsHeight;
 
 if (cssForWorkspaceSupported) {
   var workspace = document.querySelector('.workspace');
-  var workspaceTopPos = workspace.offsetTop;
-  var workspaceHeight = workspace.offsetHeight;
-  var workspaceBottomPos = workspaceTopPos + workspaceHeight;
 }
 /* Event Listener --- */
 
@@ -81,9 +74,25 @@ window.onscroll = function addBoxShadowAndBackgroundColor() {
   })();
 
   (function addBackgroundColor() {
-    var navBarBottomPos = window.pageYOffset + navBar.offsetHeight;
+    /* Positions --- */
+    // navbar
+    var navBarBottomPos = window.pageYOffset + navBar.offsetHeight; // projects section
+
+    var projectsTopPos = projects.offsetTop;
+    var projectsHeight = projects.offsetHeight;
+    var projectsBottomPos = projectsTopPos + projectsHeight; // Workspace
+
+    if (cssForWorkspaceSupported) {
+      var workspaceTopPos = workspace.offsetTop;
+      var workspaceHeight = workspace.offsetHeight;
+      var workspaceBottomPos = workspaceTopPos + workspaceHeight;
+    }
+    /* Detect overlap --- */
+
+
     var navbarOnWorkspace = cssForWorkspaceSupported ? navBarBottomPos > workspaceTopPos && navBarBottomPos < workspaceBottomPos : null;
     var navbarOnProjectsSection = navBarBottomPos > projectsTopPos && navBarBottomPos < projectsBottomPos;
+    /* Set the attributes responsible for background colors --- */
 
     if (navbarOnProjectsSection || navbarOnWorkspace) {
       navBar.setAttribute('data-oncolor', 'true');

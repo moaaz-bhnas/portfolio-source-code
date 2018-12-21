@@ -7,7 +7,7 @@ $base-light: #cdd2d2;
 $base-lighter: #e6e8e9;
 $workspace-back: #8bb0b5;
 $background: #c5d8da;
-$base2: #3e6d41;
+$base2: #325734;
 $base2-light: #c2e1c5;
 
 /* Spaces --- */
@@ -138,7 +138,7 @@ header {
 
   nav {
     max-width: $max-width;
-    // margin: 0 auto;
+    margin: 0 auto;
     padding: 0 $padding-sides;
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -440,19 +440,19 @@ article#me {
   }
 
   input#name {
-    background-image: url(../images/man-user.svg);
+    background-image: url(images/man-user.svg);
   }
 
   input#phone {
-    background-image: url(../images/phone.svg);
+    background-image: url(images/phone.svg);
   }
 
   input#email {
-    background-image: url(../images/email.svg);
+    background-image: url(images/email.svg);
   }
 
   textarea#message {
-    background-image: url(../images/chat.svg);
+    background-image: url(images/chat.svg);
     background-position: .6rem 1rem;
   }
 
