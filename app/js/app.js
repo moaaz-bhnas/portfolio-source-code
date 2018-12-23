@@ -116,7 +116,7 @@ if (cssForWorkspaceSupported) {
     var Xpers = Xmouse / window.innerWidth;
     var Ypers = Ymouse / window.innerHeight;
     var Xpos = Xpers * 100;
-    var Ypos = Ypers * 100 / 4; // Change perspective-origin
+    var Ypos = Ypers * 100 / 1; // Change perspective-origin
 
     scene.style.perspectiveOrigin = "".concat(Xpos, "% ").concat(Ypos, "%");
   };

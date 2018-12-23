@@ -251,7 +251,7 @@ if (cssForWorkspaceSupported) {
     const Xpers = Xmouse / window.innerWidth;
     const Ypers = Ymouse / window.innerHeight;
     const Xpos = Xpers * 100;
-    const Ypos = (Ypers * 100) / 4;
+    const Ypos = (Ypers * 100) / 1;
 
     // Change perspective-origin
     scene.style.perspectiveOrigin = `${Xpos}% ${Ypos}%`; 

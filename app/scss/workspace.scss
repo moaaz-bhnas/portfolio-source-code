@@ -55,6 +55,8 @@ $nail-x: .4em;
   height: 30em;
   perspective: 600px;
   perspective-origin: 50% 10%;
+
+  transition: perspective-origin .1s;
 }
 
 

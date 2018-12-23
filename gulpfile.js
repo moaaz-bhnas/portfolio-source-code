@@ -78,7 +78,7 @@ gulp.task('useref', function() {
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     // .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulpIf('*.html', htmlmin({ collapseWhitespace: true })))
+    // .pipe(gulpIf('*.html', htmlmin({ collapseWhitespace: false })))
     .pipe(gulp.dest('dist'));
 });
 
