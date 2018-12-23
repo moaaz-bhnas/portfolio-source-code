@@ -28,7 +28,11 @@
   -webkit-perspective: 600px;
   perspective: 600px;
   -webkit-perspective-origin: 50% 10%;
-  perspective-origin: 50% 10%; }
+  perspective-origin: 50% 10%;
+  -webkit-transition: -webkit-perspective-origin .1s;
+  transition: -webkit-perspective-origin .1s;
+  transition: perspective-origin .1s;
+  transition: perspective-origin .1s, -webkit-perspective-origin .1s; }
 
 /* ====================================================
     Desk
