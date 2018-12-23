@@ -251,7 +251,7 @@ if (cssForWorkspaceSupported) {
     const Xpers = Xmouse / window.innerWidth;
     const Ypers = Ymouse / window.innerHeight;
     const Xpos = Xpers * 100;
-    const Ypos = (Ypers * 100) / 1;
+    const Ypos = (Ypers * 100) / 4;
 
     // Change perspective-origin
     scene.style.perspectiveOrigin = `${Xpos}% ${Ypos}%`; 
@@ -259,5 +259,16 @@ if (cssForWorkspaceSupported) {
 
   workspace.onmouseout = function backToDefault() {
     scene.style.perspectiveOrigin = '50% 10%';
+  }
+}
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  window.onload = function() {
+    navigator.serviceWorker.register('./sw.js').then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
   }
 }
