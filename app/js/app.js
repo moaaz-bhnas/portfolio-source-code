@@ -124,4 +124,15 @@ if (cssForWorkspaceSupported) {
   workspace.onmouseout = function backToDefault() {
     scene.style.perspectiveOrigin = '50% 10%';
   };
+} // Register Service Worker
+
+
+if ('serviceWorker' in navigator) {
+  window.onload = function () {
+    navigator.serviceWorker.register('./sw.js').then(function (registration) {
+      console.log('SW registered: ', registration);
+    }).catch(function (registrationError) {
+      console.log('SW registration failed: ', registrationError);
+    });
+  };
 }

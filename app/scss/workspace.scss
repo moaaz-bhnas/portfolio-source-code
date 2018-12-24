@@ -521,7 +521,7 @@ $nail-x: .4em;
 .power-button,
 .button,
 .viewport {
-  border: .05px solid #041315;
+  border: .05px solid $color-laptop;
 }
 
 
@@ -536,7 +536,7 @@ $nail-x: .4em;
 
 .portrait-front,
 .photo {
-  border: 4px solid #041315;
+  border: 4px solid $color-portrait;
 }
 
 
