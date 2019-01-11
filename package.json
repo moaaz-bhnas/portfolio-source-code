@@ -25,7 +25,9 @@
     "run-sequence": "^2.2.1",
     "workbox-build": "^3.6.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
