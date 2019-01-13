@@ -18,10 +18,10 @@ Gulp is the one that will run all the compilation, watchers and others tasks. To
 ## Installation
 ```
 # Clone this repository
-$ git clone https://github.com/moaaz-bhnas/portfolio.git
+$ git clone https://github.com/moaaz-bhnas/portfolio-source-code.git
 
 # Go into the repository
-$ cd portfolio
+$ cd portfolio-source-code
 
 # Install dependencies
 $ npm install
