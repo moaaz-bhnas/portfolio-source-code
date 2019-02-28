@@ -253,17 +253,31 @@ header {
   margin-bottom: 1.7rem;
   
   @media screen and (min-width: $break-xl) {
+    max-width: 28rem;
     float: right;
     position: relative;
-    top: 3rem;
+    top: 2rem;
   }
 
   h3 {
     margin-bottom: 1.3rem;
   }
 
+  // h4 {
+  //   display: inline-block;
+
+  //   font-size: 1.2rem;
+  //   font-weight: 500;
+
+  //   margin: 0;
+  // }
+
+  // .tech-list {
+  //   display: inline-block;
+  // }
+
   .techs-group {
-    margin-bottom: .2rem;
+    margin-bottom: .5rem;
   }
 
   .tech {

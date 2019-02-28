@@ -178,13 +178,14 @@ header {
   margin-bottom: 1.7rem; }
   @media screen and (min-width: 950px) {
     #techs-container {
+      max-width: 28rem;
       float: right;
       position: relative;
-      top: 3rem; } }
+      top: 2rem; } }
   #techs-container h3 {
     margin-bottom: 1.3rem; }
   #techs-container .techs-group {
-    margin-bottom: .2rem; }
+    margin-bottom: .5rem; }
   #techs-container .tech {
     display: inline-block;
     font-size: 1.2rem;

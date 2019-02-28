@@ -166,10 +166,16 @@ gulp.task('default', function(callback) {
   )
 })
 
-gulp.task('build', function(callback) {
+gulp.task('build-a', function(callback) {
   runSequence(
     'clean:dist',
     ['sass', 'babel', 'unusedcss'],
+    callback
+  )
+});
+
+gulp.task('build-b', function(callback) {
+  runSequence(
     'gcmq', 'images',
     'useref',
     'generate-service-worker',
